@@ -148,7 +148,7 @@ export default function Home(){
 
                 <div className="option-1-hello-container">
                     {/* <p id="opt-2-name">Hi  <span>{nama}!!</span></p> */}
-                    <p id="opt-2-name">
+                    {/* <p id="opt-2-name"> Hi {nama} */}
                         <Typewriter
                                 options={{
                                     strings: [`Hi, ${nama}`],
@@ -158,7 +158,7 @@ export default function Home(){
                                 }}
                                 className="type-header"
                         />
-                    </p>
+                    {/* </p> */}
                     <div className="option-1-hello-question">
                         <DatePicker className="datepicker-acid" selected={startDate} minDate={new Date()} onChange={(date) => setStartDate(date)} />
                         <input type="number" placeholder="Jam Berapa Bisa Pergi ?" className="input-acid" onChange={(e)=>setJam(e.target.value)} />
@@ -175,7 +175,7 @@ export default function Home(){
 
                     <div className="last-question">
                         <p>Udah Punya Pacar Belum??</p>
-                        <select className="form-select form-select-sm"   aria-label=".form-select-sm example"
+                        <select className="form-select form-select-sm select-pacar"   aria-label=".form-select-sm example"
                         onChange={e =>pacar(e.target.value)} 
                         >
                             <option selected>gaboleh jawab udah</option>
@@ -186,7 +186,7 @@ export default function Home(){
                     
                     {
 
-                        isPacar == ''?
+                        isPacar === ''?
                         <p></p>
                         :
                         isPacar  === 'UDAH'?
