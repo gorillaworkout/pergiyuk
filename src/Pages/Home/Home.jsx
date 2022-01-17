@@ -6,8 +6,8 @@ import Swal from 'sweetalert2';
 import DatePicker from "react-datepicker";
 import moment from 'moment';
 import Typewriter from 'typewriter-effect';
-
 import "react-datepicker/dist/react-datepicker.css";
+
 
 export default function Home(){
     const [startDate, setStartDate] = useState(new Date());
