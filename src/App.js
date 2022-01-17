@@ -4,6 +4,8 @@ import Home from './Pages/Home/Home'
 import {Routes,Route} from 'react-router-dom'
 // import initFontAwesome from "./Helpers/iniFontAwesome";
 // import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { Component } from 'react'
+
 
 
 

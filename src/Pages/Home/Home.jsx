@@ -1,4 +1,5 @@
-import React, { useState,Component, useEffect } from 'react';
+import React, { useState,useEffect }  from 'react';
+
 import './Home.css'
 import bggw from '../../Assets/newbggw.png'
 import $ from "jquery";
@@ -6,7 +7,7 @@ import Swal from 'sweetalert2';
 import DatePicker from "react-datepicker";
 import moment from 'moment';
 import Typewriter from 'typewriter-effect';
-// import "react-datepicker/dist/react-datepicker.css";
+import "react-datepicker/dist/react-datepicker.css";
 
 
 export default function Home(){
