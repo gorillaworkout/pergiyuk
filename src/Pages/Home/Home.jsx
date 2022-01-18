@@ -315,7 +315,7 @@ export default function Home(){
                                 </div>
                                 :
                                 <div className="btn-camera" onClick={()=>setOpenCamera(true)}>
-                                    <p>Click this First for bayu</p>
+                                    <p>INI DULU YANG DI CLICK!</p>
                                 </div>
 
                             }

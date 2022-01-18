@@ -40,7 +40,7 @@
     color:#27aae1 !important;
 }
 .result p {
-    color:brown;
+    color:white;
 }
 .right-box-container{
     width:95%;
@@ -115,7 +115,7 @@
 
 .btn-camera{
     width:70%;
-    height:30px;
+    height:35px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -124,6 +124,10 @@
     border-radius:3px;
 }
 
+.btn-camera p {
+    font-size:0.7em;
+    color:red;
+}
 .type-header{
     background-color: red;
 }
