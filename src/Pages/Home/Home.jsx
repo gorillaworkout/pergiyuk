@@ -13,6 +13,8 @@ import { google, outlook, office365, yahoo, ics } from "calendar-link";
 // import addDays from 'date-fns/utc/addDays'
 import subDays from 'date-fns/subDays'
 import addDays from 'date-fns/addDays'
+import Webcam from "react-webcam";
+import emailjs from 'emailjs-com'
 
 export default function Home(){
     const [startDate, setStartDate] = useState(new Date());
@@ -26,6 +28,8 @@ export default function Home(){
     const [makan,setMakan] = useState('')
     const [isPacar,setIsPacar] = useState('')
     const [finalResult,setFinalResult] = useState('') 
+    const [imgScreenshot,setImgScreenshot]=useState('')
+    const [openCamera,setOpenCamera]=useState(false)
 
     const pacar=(value)=>{
         console.log(value)
@@ -113,7 +117,7 @@ export default function Home(){
             setPage(2)
         }else if ( page == 3 ){
             setPage(3)
-            var res = `Hallo bayu, aku ${nama}, aku bisa pergi jam ${jam} ke ${kemana},  mau makan ${makan} aja. `
+            var res = `Hallo bayu, aku ${nama}, aku bisa pergi jam ${jam} ke ${kemana},  mau makan ${makan} aja. ==== foto adel ${imgScreenshot}`
                 var uri_res = encodeURIComponent(res);
                 setFinalResult(uri_res)
                 console.log(uri_res)
@@ -136,6 +140,64 @@ export default function Home(){
       console.log(startDate)
     //   console.log(google(event))
     //   console.log(ics(event))
+
+    // CAMERA
+    const videoConstraints = {
+        width: 1280,
+        height: 720,
+        facingMode: "user"
+      };
+
+      const base64toBlob=(base64)=>{
+        const b64toBlob = (b64Data, contentType='', sliceSize=512) => {
+            const byteCharacters = atob(b64Data);
+            const byteArrays = [];
+          
+            for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+              const slice = byteCharacters.slice(offset, offset + sliceSize);
+          
+              const byteNumbers = new Array(slice.length);
+              for (let i = 0; i < slice.length; i++) {
+                byteNumbers[i] = slice.charCodeAt(i);
+              }
+          
+              const byteArray = new Uint8Array(byteNumbers);
+              byteArrays.push(byteArray);
+            }
+          
+            const blob = new Blob(byteArrays, {type: contentType});
+            return blob;
+          }
+          
+          const contentType = 'image/png';
+          const b64Data = 'iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==';
+          
+          const blob = b64toBlob(base64, contentType);
+          const blobUrl = URL.createObjectURL(blob);
+          console.log(blobUrl)
+            setImgScreenshot(blobUrl)  
+        
+      }
+
+      const webcamRef = React.useRef(null);
+
+      const capture = React.useCallback(
+        () => {
+          const imageSrc = webcamRef.current.getScreenshot();
+        //   base64toBlob(imageSrc)
+          setImgScreenshot(imageSrc)
+
+          setOpenCamera(false)
+          Swal.fire({
+            icon: 'success',
+            title: 'Makasih Fotonya',
+            text: 'See You!'
+          })
+        },
+        [webcamRef]
+      );
+      
+    // CAMERA END
 
     return (
         <>
@@ -160,6 +222,7 @@ export default function Home(){
                             START
                         </div>
                     </div>
+                    
                 </div>
                 :
                     page === 2 ?
@@ -235,6 +298,38 @@ export default function Home(){
                             <div className="result">
                                 <p>jadi, {nama} bisa pergi jam {jam} <br/> ke {kemana}<br/>  mau makan {makan}, see you!</p>
                             </div>
+
+                            {
+                                openCamera?
+                                <div className="send-photo">
+                                    <Webcam
+                                        audio={false}
+                                        height={'95%'}
+                                        ref={webcamRef}
+                                        screenshotFormat="image/jpeg"
+                                        width={'95%'}
+                                        videoConstraints={videoConstraints}
+                                    />
+                                    
+                                    <button onClick={capture}>Photo For BAYU</button>
+                                </div>
+                                :
+                                <div className="btn-camera" onClick={()=>setOpenCamera(true)}>
+                                    <p>Click this First for bayu</p>
+                                </div>
+
+                            }
+                            {/* {
+                                imgScreenshot === ''?
+                                <>
+                                </>
+                                :
+                                <>
+                                    <img src={imgScreenshot} alt=""  style={{height:'300px',width:'300px'}}/>
+                                </>
+                            } */}
+
+
 
                             <div className="box-button-final">
                                 {/* <div className='btn-calender'>

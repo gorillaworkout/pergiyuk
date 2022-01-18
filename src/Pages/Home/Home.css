@@ -103,6 +103,27 @@
 }
  
 @media (max-width: 414px) {
+.send-photo{
+    width:100%;
+    height:320px;
+    /* border:1px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.btn-camera{
+    width:70%;
+    height:30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    color:#27aae1;
+    border-radius:3px;
+}
+
 .type-header{
     background-color: red;
 }
@@ -320,3 +341,4 @@ box-shadow: rgb(49 53 59 / 12%) 0px 1px 6px 0px;
     border:1px solid white;
 }
 } 
+
