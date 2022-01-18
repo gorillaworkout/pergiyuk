@@ -123,13 +123,14 @@ export default function Home(){
         setNama(nama)
     }
     const event = {
-        title: "My birthday party",
-        description: "Be there!",
-        start: "2019-12-29 18:00:00 +0100",
-        duration: [3, "hour"],
+        title: `BATTLE DDR!`,
+        description: `kamu akan Pergi ke suatu mall bersama bayu selama 6 jam, agenda yang di rencanakan yaitu makan siang/sore/malam setelah makan bisa jadi nonton bioskop setelah itu battle DDR sampe bayu menang! terus misi pencarian bocah MT bintaro`,
+        start: `${startDate}`,
+        duration: [6, "hour"],
       };
-      console.log(google(event))
-      console.log(ics(event))
+      console.log(startDate)
+    //   console.log(google(event))
+    //   console.log(ics(event))
 
     return (
         <>
@@ -220,17 +221,17 @@ export default function Home(){
                             </div>
 
                             <div className="box-button-final">
-                                <div className='btn-calender'>
+                                {/* <div className='btn-calender'>
                                     <a href={google(event)} target="_blank">Google Calendar</a>
                                 </div>
                                 <div className='btn-calender'>
                                     <a href={ics(event)} target="_blank" >Apple Calendar</a>
-                                </div>
+                                </div> */}
                                 <div className="option-3-button" onClick={()=>start_game(2)}>
                                     Ganti Jawaban
                                 </div>
                                 <div className="option-3-button" onClick={()=>start_game(4)}>
-                                    <a href={`https://wa.me/6287785192296/?text=${finalResult}`} href={ics(event)} target={'_blank'}>YUK JALAN!</a>
+                                    <a href={`https://wa.me/6287785192296/?text=${finalResult}`} onClick={()=>window.open(google(event))}>YUK JALAN!</a>
                                 </div>
 
                                 
