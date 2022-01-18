@@ -8,7 +8,8 @@ import DatePicker from "react-datepicker";
 import moment from 'moment';
 import Typewriter from 'typewriter-effect';
 import "react-datepicker/dist/react-datepicker.css";
-
+import AddToCalendar from 'react-add-to-calendar';
+import { google, outlook, office365, yahoo, ics } from "calendar-link";
 
 export default function Home(){
     const [startDate, setStartDate] = useState(new Date());
@@ -116,10 +117,20 @@ export default function Home(){
         }
     })
 
+
     const onChangeNama=(nama)=>{
         console.log(nama)
         setNama(nama)
     }
+    const event = {
+        title: "My birthday party",
+        description: "Be there!",
+        start: "2019-12-29 18:00:00 +0100",
+        duration: [3, "hour"],
+      };
+      console.log(google(event))
+      console.log(ics(event))
+
     return (
         <>
             <div className="box-home">
@@ -209,12 +220,20 @@ export default function Home(){
                             </div>
 
                             <div className="box-button-final">
+                                <div className='btn-calender'>
+                                    <a href={google(event)} target="_blank">Google Calendar</a>
+                                </div>
+                                <div className='btn-calender'>
+                                    <a href={ics(event)} target="_blank" >Apple Calendar</a>
+                                </div>
                                 <div className="option-3-button" onClick={()=>start_game(2)}>
                                     Ganti Jawaban
                                 </div>
                                 <div className="option-3-button" onClick={()=>start_game(4)}>
-                                    <a href={`https://wa.me/6287785192296/?text=${finalResult}`} target={'_blank'}>YUK JALAN!</a>
+                                    <a href={`https://wa.me/6287785192296/?text=${finalResult}`} href={ics(event)} target={'_blank'}>YUK JALAN!</a>
                                 </div>
+
+                                
 
                             </div>
                         </>

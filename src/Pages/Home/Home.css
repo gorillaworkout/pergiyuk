@@ -19,6 +19,25 @@
     border-right:2px dotted #00a8ff;
     background-color: #dcdde1;
 }
+.btn-calender{
+    width:45%;
+    height:40px;
+    border:1px solid white;
+    font-size:0.7em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:white;
+    background-color: white;
+    color:#27aae1;
+    border-radius:8px;
+    text-decoration: none;
+
+}
+.btn-calender a {
+    text-decoration: none;
+    color:#27aae1 !important;
+}
 .result p {
     color:brown;
 }
@@ -279,6 +298,7 @@ box-shadow: rgb(49 53 59 / 12%) 0px 1px 6px 0px;
         justify-content: space-around;
         align-items: center;
         flex-direction: row;
+        flex-wrap: wrap;
     }
 /* .option-3-hello-container p {
     font-size:40px;
