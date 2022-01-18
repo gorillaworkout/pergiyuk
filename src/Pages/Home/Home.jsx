@@ -24,12 +24,13 @@ export default function Home(){
 
     const pacar=(value)=>{
         console.log(value)
-        if(value === 'gaboleh jawab udah'){
+        if(value === 'Choose your Answer'){
             console.log('true')
             setIsPacar('')
         }else {
             setIsPacar(value)
         }
+        // setIsPacar(value)
     }
     const start_game=(id)=>{
         if(page == 1){
@@ -175,13 +176,13 @@ export default function Home(){
                 <div className="option-3-hello-container">
 
                     <div className="last-question">
-                        <p>Udah Punya Pacar Belum??</p>
+                        <p>Can i call you <span>"mine"</span>  one day ?</p>
                         <select className="form-select form-select-sm select-pacar"   aria-label=".form-select-sm example"
                         onChange={e =>pacar(e.target.value)} 
                         >
-                            <option selected>gaboleh jawab udah</option>
-                            <option value="UDAH">UDAH</option>
-                            <option value="BELUM">BELUM</option>
+                            <option value="Choose your Answer" selected>Choose your Answer</option>
+                            <option value="NO">NO</option>
+                            <option value="YES">YES</option>
                         </select>
                     </div>
                     
@@ -190,23 +191,21 @@ export default function Home(){
                         isPacar === ''?
                         <p></p>
                         :
-                        isPacar  === 'UDAH'?
+                        isPacar  === 'NO'?
                         <>
-                        <div className="udh-pacar">
-                            <p>ku kecewa udah ada pacar,</p>
-                            <p>kalo udah putus kabarin!</p>
-                        </div>
-                        <div className="btn-closetab" onClick={bubar}>
-                        <a href="https://www.google.com/search?q=mengsedih" target="_blank" > BUBAR BUBAR!</a>
-
-                            
-                        </div>
+                            <div className="udh-pacar">
+                                <p>alrite. thats okay! </p>
+                                {/* <p>kalo udah putus kabarin!</p> */}
+                            </div>
+                            <div className="btn-closetab" onClick={bubar}>
+                                <a href="https://www.google.com/search?q=mengsedih" target="_blank" >BYE!</a>
+                            </div>
                         </>
                         :
                         
                         <>
                             <div className="result">
-                                <p>jadi, {nama} bisa pergi jam {jam} <br/> ke {kemana}<br/>  mau makan {makan}</p>
+                                <p>jadi, {nama} bisa pergi jam {jam} <br/> ke {kemana}<br/>  mau makan {makan}, see you!</p>
                             </div>
 
                             <div className="box-button-final">
