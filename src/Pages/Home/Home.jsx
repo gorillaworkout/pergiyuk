@@ -10,10 +10,14 @@ import Typewriter from 'typewriter-effect';
 import "react-datepicker/dist/react-datepicker.css";
 import AddToCalendar from 'react-add-to-calendar';
 import { google, outlook, office365, yahoo, ics } from "calendar-link";
+// import addDays from 'date-fns/utc/addDays'
+import subDays from 'date-fns/subDays'
+import addDays from 'date-fns/addDays'
 
 export default function Home(){
     const [startDate, setStartDate] = useState(new Date());
-    
+    // const subDays = require('date-fns/subDays')
+
 
     const [page,setPage]= useState(1)
     const [nama, setNama] = useState('')
@@ -122,9 +126,10 @@ export default function Home(){
         console.log(nama)
         setNama(nama)
     }
+    const text = 'Click For Chat with Bayu'
     const event = {
         title: `BATTLE DDR!`,
-        description: `kamu akan Pergi ke suatu mall bersama bayu selama 6 jam, agenda yang di rencanakan yaitu makan siang/sore/malam setelah makan bisa jadi nonton bioskop setelah itu battle DDR sampe bayu menang! terus misi pencarian bocah MT bintaro`,
+        description: `kamu akan Pergi ke suatu mall bersama bayu selama 6 jam, agenda yang di rencanakan yaitu makan siang/sore/malam setelah makan bisa jadi nonton bioskop setelah itu battle DDR sampe bayu menang! terus misi pencarian bocah MT bintaro, ${text.link(`https://wa.me/6287785192296/?`)} `,
         start: `${startDate}`,
         duration: [6, "hour"],
       };
@@ -174,7 +179,18 @@ export default function Home(){
                         />
                     {/* </p> */}
                     <div className="option-1-hello-question">
-                        <DatePicker className="datepicker-acid" selected={startDate} minDate={new Date()} onChange={(date) => setStartDate(date)} />
+                        <DatePicker 
+                            className="datepicker-acid"
+                            selected={startDate}
+                            minDate={new Date()}
+                            
+                            onChange={(date) => setStartDate(date)}  
+                            showTimeSelect
+                            includeDateIntervals={[
+                                { start: subDays(new Date(), 5), end: addDays(new Date(), 5) },
+                              ]}
+                          
+                            />
                         <input type="number" placeholder="Jam Berapa Bisa Pergi ?" className="input-acid" onChange={(e)=>setJam(e.target.value)} />
                         <input type="text" placeholder="Maunya Pergi Kemana?" className="input-acid" onChange={(e)=>setKemana(e.target.value)}/>
                         <input type="text" placeholder="Sukanya Makan Apa?"className="input-acid" onChange={(e)=>setMakan(e.target.value)}/>

@@ -6,6 +6,7 @@
     background-color: pink;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 .left-box-container{
@@ -183,6 +184,15 @@ box-shadow: rgb(49 53 59 / 12%) 0px 1px 6px 0px;
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
+}
+.react-datepicker-popper {
+    transform: translate3d(-55px, 370px, 0px) !important;
+}
+.datepicker-acid {
+    width:70%;
+    height:35px;
+    border:1px solid white;
+    border-radius:5px;
 }
 .input-acid {
     width:50%;
