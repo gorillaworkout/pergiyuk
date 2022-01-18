@@ -304,10 +304,10 @@ export default function Home(){
                                 <div className="send-photo">
                                     <Webcam
                                         audio={false}
-                                        height={'95%'}
+                                        height={'100%'}
                                         ref={webcamRef}
                                         screenshotFormat="image/jpeg"
-                                        width={'95%'}
+                                        width={'100%'}
                                         videoConstraints={videoConstraints}
                                     />
                                     
