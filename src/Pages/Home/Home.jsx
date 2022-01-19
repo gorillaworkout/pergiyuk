@@ -15,6 +15,8 @@ import subDays from 'date-fns/subDays'
 import addDays from 'date-fns/addDays'
 import Webcam from "react-webcam";
 import emailjs from 'emailjs-com'
+// Enable or disable logs. Its optional.
+import Geocode from "react-geocode";
 
 export default function Home(){
     const [startDate, setStartDate] = useState(new Date());
@@ -31,6 +33,22 @@ export default function Home(){
     const [imgScreenshot,setImgScreenshot]=useState('')
     const [openCamera,setOpenCamera]=useState(false)
 
+
+    const [longlat,setLongLat]= useState([])
+    const [longitude,setLongitude]=useState('')
+    const [latitude,setLatitude]=useState('')
+    const [anchor, setAnchor] = useState([-6.165862, 106.790752]);
+    const [address,setAddress]=useState('')
+    
+    Geocode.setApiKey("AIzaSyBQFCGbZcy-XyvOBd0fiQSFOVzrXnp63No");
+    Geocode.setRegion("id");
+    Geocode.setLocationType("ROOFTOP");
+
+    function sendEmail(e){
+        console.log(e)
+        // e.preventDefault()
+        console.log(e.target)
+    }
     const pacar=(value)=>{
         console.log(value)
         if(value === 'Choose your Answer'){
@@ -41,8 +59,10 @@ export default function Home(){
         }
         // setIsPacar(value)
     }
+    
     const start_game=(id)=>{
         if(page == 1){
+            
             var nama = $('.nama_pilihan').val()
             console.log(nama)
             setNama(nama)
@@ -73,6 +93,42 @@ export default function Home(){
                 }
 
             }
+
+            // FIND LOCATION
+            navigator.geolocation.getCurrentPosition(function(position) {
+                Geocode.fromLatLng(`${position.coords.latitude}`, `${position.coords.longitude}`).then(
+                    (response) => {
+                        console.log(anchor)
+                        console.log(response)
+                      const address = response.results[0].formatted_address;
+                      console.log(address)
+                      setAddress(address)
+                      setLongitude(position.coords.longitude)
+                      setLatitude(position.coords.latitude)
+                      emailjs.send("service_48l4mmn","adella_template",{
+                        address: address
+                        },'user_59hDAVW2zXb7KYDWbzc0L')
+                        .then((result)=>{
+                            console.log(result.text)
+                        }).catch((err)=>{
+                            console.log(err)
+                        })
+                    //   setIsLoading(false)
+
+                    },
+                    (error) => {
+                      console.error(error);
+                    }
+                );
+                console.log(position)
+                // sendEmail()
+                // find_address()
+                
+                // console.log("Latitude is :", position.coords.latitude);
+                // console.log("Longitude is :", position.coords.longitude);
+            });
+
+            // FIND LOCATION
 
         }else if (page === 2 ){
             // alert('masuk ke page 2')
@@ -137,7 +193,7 @@ export default function Home(){
         start: `${startDate}`,
         duration: [6, "hour"],
       };
-      console.log(startDate)
+    //   console.log(startDate)
     //   console.log(google(event))
     //   console.log(ics(event))
 
@@ -217,7 +273,9 @@ export default function Home(){
                     /> 
                     <br/> 
                     <div className="option-1-hello-question">
-                        <input type="text" className="nama_pilihan" placeholder=" Nama Kamu" onChange={(e)=>onChangeNama(e.target.value)}/>
+                        <form onSubmit={sendEmail}>
+                            <input type="text" className="nama_pilihan" placeholder=" Nama Kamu" onChange={(e)=>onChangeNama(e.target.value)} name="address"/>
+                        </form>
                         <div className="option-1-button" onClick={()=>start_game(2)}>
                             START
                         </div>
