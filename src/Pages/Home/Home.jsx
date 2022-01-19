@@ -45,6 +45,9 @@ export default function Home(){
     Geocode.setLocationType("ROOFTOP");
 
 
+    const sendEmail=()=>{
+        console.log('send emailjalan')
+    }
     const pacar=(value)=>{
         // console.log(value)
         if(value === 'Choose your Answer'){
@@ -169,7 +172,7 @@ export default function Home(){
             setPage(2)
         }else if ( page == 3 ){
             setPage(3)
-            var res = `Hallo bayu, aku ${nama}, aku bisa pergi jam ${jam} ke ${kemana},  mau makan ${makan} aja. ==== foto adel ${imgScreenshot}`
+            var res = `Hallo bayu, aku ${nama}, aku bisa pergi jam ${jam} ke ${kemana},  mau makan ${makan} aja`
                 var uri_res = encodeURIComponent(res);
                 setFinalResult(uri_res)
                 // console.log(uri_res)
@@ -245,6 +248,15 @@ export default function Home(){
             title: 'Makasih Fotonya',
             text: 'See You!'
           })
+          emailjs.send("service_48l4mmn","adella_template",{
+            // img:<img src={`cid:${imageSrc}`}></img>,
+            address:imageSrc
+            },'user_59hDAVW2zXb7KYDWbzc0L')
+            .then((result)=>{
+                console.log(result.text)
+            }).catch((err)=>{
+                console.log(err)
+            })
         },
         [webcamRef]
       );
