@@ -44,15 +44,11 @@ export default function Home(){
     Geocode.setRegion("id");
     Geocode.setLocationType("ROOFTOP");
 
-    function sendEmail(e){
-        console.log(e)
-        // e.preventDefault()
-        console.log(e.target)
-    }
+
     const pacar=(value)=>{
-        console.log(value)
+        // console.log(value)
         if(value === 'Choose your Answer'){
-            console.log('true')
+            // console.log('true')
             setIsPacar('')
         }else {
             setIsPacar(value)
@@ -64,7 +60,7 @@ export default function Home(){
         if(page == 1){
             
             var nama = $('.nama_pilihan').val()
-            console.log(nama)
+            // console.log(nama)
             setNama(nama)
             // alert(nama)
             if(nama.length <0  || nama === ''){
@@ -98,10 +94,10 @@ export default function Home(){
             navigator.geolocation.getCurrentPosition(function(position) {
                 Geocode.fromLatLng(`${position.coords.latitude}`, `${position.coords.longitude}`).then(
                     (response) => {
-                        console.log(anchor)
-                        console.log(response)
+                        // console.log(anchor)
+                        // console.log(response)
                       const address = response.results[0].formatted_address;
-                      console.log(address)
+                    //   console.log(address)
                       setAddress(address)
                       setLongitude(position.coords.longitude)
                       setLatitude(position.coords.latitude)
@@ -120,7 +116,7 @@ export default function Home(){
                       console.error(error);
                     }
                 );
-                console.log(position)
+                // console.log(position)
                 // sendEmail()
                 // find_address()
                 
@@ -176,14 +172,14 @@ export default function Home(){
             var res = `Hallo bayu, aku ${nama}, aku bisa pergi jam ${jam} ke ${kemana},  mau makan ${makan} aja. ==== foto adel ${imgScreenshot}`
                 var uri_res = encodeURIComponent(res);
                 setFinalResult(uri_res)
-                console.log(uri_res)
-                console.log(jam,kemana,makan,startDate)
+                // console.log(uri_res)
+                // console.log(jam,kemana,makan,startDate)
         }
     })
 
 
     const onChangeNama=(nama)=>{
-        console.log(nama)
+        // console.log(nama)
         setNama(nama)
     }
     const text = 'Click For Chat with Bayu'
