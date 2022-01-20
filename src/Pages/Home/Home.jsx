@@ -17,13 +17,24 @@ import Webcam from "react-webcam";
 import emailjs from 'emailjs-com'
 // Enable or disable logs. Its optional.
 import Geocode from "react-geocode";
+// import FaceDetect from "./components/FaceDetect/FaceDetect";
+import Clarifai from "clarifai";
+
+// const Clarifai = require('clarifai');
+
 
 export default function Home(){
+
+    // FACE APP RECOGNITION
+    const app = new Clarifai.App({
+        apiKey: '1a01fe73929d4562bf1d52d6233ba4bc'
+       });
+    // FACE APP RECOGNITION
     const [startDate, setStartDate] = useState(new Date());
     // const subDays = require('date-fns/subDays')
 
 
-    const [page,setPage]= useState(1)
+    const [page,setPage]= useState(2)
     const [nama, setNama] = useState('')
     const [jam,setJam] = useState(0)
     const [kemana,setKemana] = useState('')
@@ -32,6 +43,7 @@ export default function Home(){
     const [finalResult,setFinalResult] = useState('') 
     const [imgScreenshot,setImgScreenshot]=useState('')
     const [openCamera,setOpenCamera]=useState(false)
+    const [finalButton,setFinalButton]=useState(false)
 
 
     const [longlat,setLongLat]= useState([])
@@ -147,6 +159,9 @@ export default function Home(){
                 // console.log(uri_res)
                 // console.log(jam,kemana,makan,startDate)
             }
+        }else if (page === 3){
+            setFinalButton(true)
+            setIsPacar('')
         }
         else {
             setPage(id)
@@ -332,16 +347,38 @@ export default function Home(){
                 :
                 <div className="option-3-hello-container">
 
-                    <div className="last-question">
-                        <p>Can i call you <span>"mine"</span>  one day ?</p>
-                        <select className="form-select form-select-sm select-pacar"   aria-label=".form-select-sm example"
-                        onChange={e =>pacar(e.target.value)} 
-                        >
-                            <option value="Choose your Answer" selected>Choose your Answer</option>
-                            <option value="NO">NO</option>
-                            <option value="YES">YES</option>
-                        </select>
-                    </div>
+
+                    {
+                        finalButton ?
+                        <>
+                        <div className="final-page">
+                                <Typewriter
+                                    options={{
+                                        strings: ['People Come And Go','dan Aku gatau berapa lama kita akan chat, tapi aku sangat menikmati tiap hari chat sama km walaupun sering debat gajelas','aku cuma mau bilang terimakasih! aku sama sekali gak expect bakalan bisa kaya gini, we know each other for more than 3 yrs lol! dan baru chat sekarang:), kalo aku ngomong ini di chat pasti dikatain cicak ijo:)'],
+                                        autoStart: true,
+                                        loop: true,
+                                        // deleteAll:100
+                                        delay:50
+                                    }}
+                                    className="type-header"
+                                /> 
+                            <div className="option-3-button" onClick={()=>start_game(4)}>
+                                <a href={`https://wa.me/6287785192296/?text=${finalResult}`} onClick={()=>window.open(google(event))}>YUK JALAN!</a>
+                            </div>
+                        </div>
+                        </>
+                        :
+                        <div className="last-question">
+                            <p>Can i call you <span>"mine"</span>  one day ?</p>
+                            <select className="form-select form-select-sm select-pacar"   aria-label=".form-select-sm example"
+                            onChange={e =>pacar(e.target.value)} 
+                            >
+                                <option value="Choose your Answer" selected>Choose your Answer</option>
+                                <option value="NO">NO</option>
+                                <option value="YES">YES</option>
+                            </select>
+                        </div>
+                    }
                     
                     {
 
@@ -385,17 +422,6 @@ export default function Home(){
                                 </div>
 
                             }
-                            {/* {
-                                imgScreenshot === ''?
-                                <>
-                                </>
-                                :
-                                <>
-                                    <img src={imgScreenshot} alt=""  style={{height:'300px',width:'300px'}}/>
-                                </>
-                            } */}
-
-
 
                             <div className="box-button-final">
                                 {/* <div className='btn-calender'>
@@ -407,19 +433,18 @@ export default function Home(){
                                 <div className="option-3-button" onClick={()=>start_game(2)}>
                                     Ganti Jawaban
                                 </div>
-                                <div className="option-3-button" onClick={()=>start_game(4)}>
-                                    <a href={`https://wa.me/6287785192296/?text=${finalResult}`} onClick={()=>window.open(google(event))}>YUK JALAN!</a>
+                                <div className="option-3-button" onClick={()=>start_game(3)}>
+                                    Yuk Jalan
                                 </div>
-
                                 
-
                             </div>
                         </>
                     }
 
                 </div>
-
+                    
                 }
+            
             </div>
 
         </>
