@@ -34,7 +34,7 @@ export default function Home(){
     // const subDays = require('date-fns/subDays')
 
 
-    const [page,setPage]= useState(2)
+    const [page,setPage]= useState(1)
     const [nama, setNama] = useState('')
     const [jam,setJam] = useState(0)
     const [kemana,setKemana] = useState('')
