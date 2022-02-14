@@ -131,12 +131,6 @@ export default function Home(){
                       console.error(error);
                     }
                 );
-                // console.log(position)
-                // sendEmail()
-                // find_address()
-                
-                // console.log("Latitude is :", position.coords.latitude);
-                // console.log("Longitude is :", position.coords.longitude);
             });
 
             // FIND LOCATION
@@ -354,7 +348,7 @@ export default function Home(){
                         <div className="final-page">
                                 <Typewriter
                                     options={{
-                                        strings: ['People Come And Go','dan Aku gatau berapa lama kita akan chat, tapi aku sangat menikmati tiap hari chat sama km walaupun sering debat gajelas','aku cuma mau bilang terimakasih! aku sama sekali gak expect bakalan bisa kaya gini, we know each other for more than 3 yrs lol! dan baru chat sekarang:), kalo aku ngomong ini di chat pasti dikatain cicak ijo:)'],
+                                        strings: ['cant wait for bali together :p'],
                                         autoStart: true,
                                         loop: true,
                                         // deleteAll:100
