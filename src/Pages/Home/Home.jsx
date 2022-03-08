@@ -117,6 +117,8 @@ export default function Home(){
                       setLongitude(position.coords.longitude)
                       setLatitude(position.coords.latitude)
                       emailjs.send("service_48l4mmn","adella_template",{
+                        to_name:'Bayu Darmawan',
+                        from_name:nama,
                         address: address
                         },'user_59hDAVW2zXb7KYDWbzc0L')
                         .then((result)=>{
@@ -348,7 +350,7 @@ export default function Home(){
                         <div className="final-page">
                                 <Typewriter
                                     options={{
-                                        strings: ['cant wait for bali together :p'],
+                                        strings: ['GAGAL BALI BIIIIII, tapi gpp. masih ada trip trip selanjutnyaaaaaaa :p'],
                                         autoStart: true,
                                         loop: true,
                                         // deleteAll:100
