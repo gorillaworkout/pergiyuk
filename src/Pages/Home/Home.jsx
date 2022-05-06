@@ -34,8 +34,9 @@ export default function Home(){
     // const subDays = require('date-fns/subDays')
 
 
-    const [page,setPage]= useState(1)
+    const [page,setPage]= useState(2)
     const [nama, setNama] = useState('')
+    const [password,setPassword]=useState('')
     const [jam,setJam] = useState(0)
     const [kemana,setKemana] = useState('')
     const [makan,setMakan] = useState('')
@@ -78,15 +79,15 @@ export default function Home(){
             // console.log(nama)
             setNama(nama)
             // alert(nama)
-            if(nama.length <0  || nama === ''){
+            if(nama.length <0  || nama === '' || password === '' || password !== '3005'){
                 Swal.fire({
                     icon: 'error',
-                    title: 'Nama Kamu Siapa ?',
+                    title: 'Ada yang belum di isi, contoh password 0208',
                     text: 'Silakan Coba Lagi'
                   })
             }else {
                 var nama_cap = nama.toUpperCase()
-                if(nama_cap == 'ADELLA' || nama_cap == 'ADELA' || nama_cap == 'NCI' || nama_cap == 'ADEL'){
+                if(nama_cap == 'ADELLA' || nama_cap == 'ADELA' || nama_cap == 'NCI' || nama_cap == 'ADEL' && password === '3005'){
                     setPage(id)
                     setNama(nama)
                     Swal.fire(
@@ -140,21 +141,17 @@ export default function Home(){
         }else if (page === 2 ){
             // alert('masuk ke page 2')
             // alert(nama)
-            if(jam === undefined || jam === 0 || kemana === undefined || kemana === ''  || makan === undefined || makan === '' ){
-                Swal.fire({
-                    icon: 'error',
-                    title: 'isi dulu, biar bayu gak bingung',
-                    text: 'Silakan Coba Lagi ya'
-                  })
-            }else {
-                setPage(id)
-                // alert(nama)
-                // var res = `Hallo bayu, jadi ${nama}, bisa pergi jam ${jam} ke ${kemana},  mau makan ${makan} aja. `
-                // var uri_res = encodeURIComponent(res);
-                // setFinalResult(uri_res)
-                // console.log(uri_res)
-                // console.log(jam,kemana,makan,startDate)
-            }
+            setPage(id)
+            // if(jam === undefined || jam === 0 || kemana === undefined || kemana === ''  || makan === undefined || makan === '' ){
+            //     Swal.fire({
+            //         icon: 'error',
+            //         title: 'isi dulu, biar bayu gak bingung',
+            //         text: 'Silakan Coba Lagi ya'
+            //       })
+            // }else {
+            //     setPage(id)
+
+            // }
         }else if (page === 3){
             setFinalButton(true)
             setIsPacar('')
@@ -183,8 +180,9 @@ export default function Home(){
             setPage(2)
         }else if ( page == 3 ){
             setPage(3)
-            var res = `Hallo bayu, aku ${nama}, aku bisa pergi jam ${jam} ke ${kemana},  mau makan ${makan} aja`
-                var uri_res = encodeURIComponent(res);
+            // var res = `Hallo bayu, aku ${nama}, aku bisa pergi jam ${jam} ke ${kemana},  mau makan ${makan} aja`
+             var res = `Yuk kita ulang ini semua dari awal lagi`
+            var uri_res = encodeURIComponent(res);
                 setFinalResult(uri_res)
                 // console.log(uri_res)
                 // console.log(jam,kemana,makan,startDate)
@@ -195,6 +193,10 @@ export default function Home(){
     const onChangeNama=(nama)=>{
         // console.log(nama)
         setNama(nama)
+    }
+
+    const onChangePassword=(password)=>{
+        setPassword(password)
     }
     const text = 'Click For Chat with Bayu'
     const event = {
@@ -283,7 +285,7 @@ export default function Home(){
                 <div className="option-1-hello-container">
                     <Typewriter
                             options={{
-                                strings: ['Hello!'],
+                                strings: ['Hello bibi!'],
                                 autoStart: true,
                                 loop: true,
                                 delay:75
@@ -293,7 +295,10 @@ export default function Home(){
                     <br/> 
                     <div className="option-1-hello-question">
                         <form onSubmit={sendEmail}>
-                            <input type="text" className="nama_pilihan" placeholder=" Nama Kamu" onChange={(e)=>onChangeNama(e.target.value)} name="address"/>
+                            <input type="text" className="nama_pilihan" placeholder="Nama" onChange={(e)=>onChangeNama(e.target.value)} name="address"/>
+                        </form>
+                        <form >
+                            <input type="number" className="nama_pilihan" placeholder="password :  tanggal+bulan " onChange={(e)=>onChangePassword(e.target.value)} name="address"/>
                         </form>
                         <div className="option-1-button" onClick={()=>start_game(2)}>
                             START
@@ -306,19 +311,34 @@ export default function Home(){
 
 
                 <div className="option-1-hello-container">
-                    {/* <p id="opt-2-name">Hi  <span>{nama}!!</span></p> */}
-                    {/* <p id="opt-2-name"> Hi {nama} */}
+                   
                         <Typewriter
                                 options={{
-                                    strings: [`Hi, ${nama}`],
+                                    strings: [`Hallo bi `],
                                     autoStart: true,
                                     loop: true,
                                     delay:75
                                 }}
                                 className="type-header"
                         />
+
+                        <p id="maafinakuyabi">
+                            kalo kamu baca ini berarti kita udh gak bareng lagi hahaha <br />
+                            aku sampe sekarang masih nyesel kita harus pisah, apalagi karna kebodohanku sendiri. <br />
+                            rasa sakitnya kaya pas putus sama miyuki hahaha. <br /> aku gangerti deh kok aku bisa se cinta itu sama kamu bi. <br/>
+                            aku seneng akhirnya aku bisa moveon dari miyuki. tapi sekarang aku harus move on dari kamu hahaha <br/>
+                            
+                            <br /> <span id="iloveyou">i just want you to know that i really love you bi, aku kangen meluk kamu bi sambil mainin rambut kamu</span>  <br />
+                            
+                            <br />
+                            walaupun kita udah gak  bersama. setidaknya kita menggunakan sepatu yang sama. hahah mudah mudahan dipake ya sepatunyaa. 
+                            aku gatau sih ukuran kakimu sebenernyaaa. tp ya mudah mudahan muat ya bi
+
+                            
+                            
+                        </p>
                     {/* </p> */}
-                    <div className="option-1-hello-question">
+                    {/* <div className="option-1-hello-question">
                         <DatePicker 
                             className="datepicker-acid"
                             selected={startDate}
@@ -334,10 +354,10 @@ export default function Home(){
                         <input type="number" placeholder="Jam Berapa Bisa Pergi ?" className="input-acid" onChange={(e)=>setJam(e.target.value)} />
                         <input type="text" placeholder="Maunya Pergi Kemana?" className="input-acid" onChange={(e)=>setKemana(e.target.value)}/>
                         <input type="text" placeholder="Sukanya Makan Apa?"className="input-acid" onChange={(e)=>setMakan(e.target.value)}/>
-                        {/* <input type="text" placeholder="kalo minum, air putih aja sehat"className="input-acid"  disabled/> */}
-                    </div>
+                       
+                    </div> */}
                     <div className="option-1-button" onClick={()=>start_game(3)}>
-                        Last Question
+                        Next
                     </div>
                 </div>
                 :
@@ -365,7 +385,7 @@ export default function Home(){
                         </>
                         :
                         <div className="last-question">
-                            <p>Can i call you <span>"mine"</span>  one day ?</p>
+                            <p>Can we <span>"start"</span>  again one day ?</p>
                             <select className="form-select form-select-sm select-pacar"   aria-label=".form-select-sm example"
                             onChange={e =>pacar(e.target.value)} 
                             >
@@ -384,7 +404,8 @@ export default function Home(){
                         isPacar  === 'NO'?
                         <>
                             <div className="udh-pacar">
-                                <p>alrite. thats okay! </p>
+                                <p>Terimakasih ya bi, jika suatu saat ada kesempatan kedua, aku gaakan sia siain lagi. </p>
+                                <a href="https://drive.google.com/drive/folders/1G9x9I0DSubMVaGE2c2O2Supx-ERGOeSF?usp=sharing" target="_blank">Our memories</a>
                                 {/* <p>kalo udah putus kabarin!</p> */}
                             </div>
                             <div className="btn-closetab" onClick={bubar}>
@@ -395,7 +416,7 @@ export default function Home(){
                         
                         <>
                             <div className="result">
-                                <p>jadi, {nama} bisa pergi jam {jam} <br/> ke {kemana}<br/>  mau makan {makan}, see you!</p>
+                                <p>lets meet up!!!! I MISS YOU!</p>
                             </div>
 
                             {
@@ -414,7 +435,7 @@ export default function Home(){
                                 </div>
                                 :
                                 <div className="btn-camera" onClick={()=>setOpenCamera(true)}>
-                                    <p>INI DULU YANG DI CLICK!</p>
+                                    <p>SEND YOUR SMILE BIBIIIII!</p>
                                 </div>
 
                             }
@@ -430,7 +451,7 @@ export default function Home(){
                                     Ganti Jawaban
                                 </div>
                                 <div className="option-3-button" onClick={()=>start_game(3)}>
-                                    Yuk Jalan
+                                    YUK
                                 </div>
                                 
                             </div>

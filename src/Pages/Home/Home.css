@@ -156,8 +156,20 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size:25px;
+    font-size:15px;
     font-weight:600;
+    
+    
+}
+#maafinakuyabi{
+    font-size: 15px;
+    padding-left:30px;
+    padding-right:30px;
+    margin-bottom:10px;
+}
+#iloveyou {
+    color:white;
+    font-size:20px;
 }
 .option-1-hello-question{
     width:100%;
@@ -268,6 +280,11 @@ box-shadow: rgb(49 53 59 / 12%) 0px 1px 6px 0px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+.udh-pacar p {
+    padding-left:30px;
+    padding-right:30px;
+    margin-bottom:30px;
 }
 .btn-closetab {
     width:80%;
