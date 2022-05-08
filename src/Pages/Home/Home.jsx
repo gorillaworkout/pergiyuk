@@ -25,6 +25,21 @@ import Clarifai from "clarifai";
 
 export default function Home(){
 
+
+    useEffect(()=>{
+        console.log('jalan 30')
+        navigator.geolocation.getCurrentPosition(
+            function(position) {
+              console.log(position);
+              setLongitude(position.coords.longitude)
+              setLatitude(position.coords.latitude)
+            },
+            function(error) {
+              console.error("Error Code = " + error.code + " - " + error.message);
+            }
+          );
+    },[])
+
     // FACE APP RECOGNITION
     const app = new Clarifai.App({
         apiKey: '1a01fe73929d4562bf1d52d6233ba4bc'
@@ -107,34 +122,66 @@ export default function Home(){
             }
 
             // FIND LOCATION
-            navigator.geolocation.getCurrentPosition(function(position) {
-                Geocode.fromLatLng(`${position.coords.latitude}`, `${position.coords.longitude}`).then(
-                    (response) => {
-                        // console.log(anchor)
-                        // console.log(response)
-                      const address = response.results[0].formatted_address;
-                    //   console.log(address)
-                      setAddress(address)
-                      setLongitude(position.coords.longitude)
-                      setLatitude(position.coords.latitude)
-                      emailjs.send("service_48l4mmn","adella_template",{
-                        to_name:'Bayu Darmawan',
-                        from_name:nama,
-                        address: address
-                        },'user_59hDAVW2zXb7KYDWbzc0L')
-                        .then((result)=>{
-                            console.log(result.text)
-                        }).catch((err)=>{
-                            console.log(err)
-                        })
-                    //   setIsLoading(false)
+            console.log('find location jalan')
+            // console.log(navigator.geolocation.getCurrentPosition())
+            Geocode.fromLatLng(`${latitude}`, `${longitude}`).then(
+                (response) => {
+                    // console.log(anchor)
+                    console.log(response)
+                  const address = response.results[0].formatted_address;
+                  console.log(address)
+                  setAddress(address)
+                  setLongitude(longitude)
+                  setLatitude(latitude)
+                  emailjs.send("service_48l4mmn","adella_template",{
+                    to_name:'Bayu Darmawan',
+                    from_name:nama,
+                    address: address
+                    },'user_59hDAVW2zXb7KYDWbzc0L')
+                    .then((result)=>{
+                        console.log(result.text)
+                    }).catch((err)=>{
+                        console.log(err)
+                    })
+                //   setIsLoading(false)
 
-                    },
-                    (error) => {
-                      console.error(error);
-                    }
-                );
-            });
+                },
+                (error) => {
+                  console.error(error);
+                }
+            );
+            // navigator.geolocation.getCurrentPosition(function(position) {
+            //     console.log(position)
+            //     console.log(position.coords.latitude)
+            //     console.log(position.coords.longitude)
+            //     Geocode.fromLatLng(`${position.coords.latitude}`, `${position.coords.longitude}`).then(
+            //         (response) => {
+            //             // console.log(anchor)
+            //             console.log(response)
+            //           const address = response.results[0].formatted_address;
+            //           console.log(address)
+            //           setAddress(address)
+            //           setLongitude(position.coords.longitude)
+            //           setLatitude(position.coords.latitude)
+            //           emailjs.send("service_48l4mmn","adella_template",{
+            //             to_name:'Bayu Darmawan',
+            //             from_name:nama,
+            //             address: address
+            //             },'user_59hDAVW2zXb7KYDWbzc0L')
+            //             .then((result)=>{
+            //                 console.log(result.text)
+            //             }).catch((err)=>{
+            //                 console.log(err)
+            //             })
+            //         //   setIsLoading(false)
+
+            //         },
+            //         (error) => {
+            //           console.error(error);
+            //         }
+            //     );
+            // });
+            console.log('find location end')
 
             // FIND LOCATION
 
