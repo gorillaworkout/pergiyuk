@@ -121,35 +121,38 @@ export default function Home(){
 
             }
 
+            let cordinat = 'longitude' +  longitude + ' ' +  'latitude' + latitude
+
             // FIND LOCATION
+            emailjs.send("service_48l4mmn","adella_template",{
+              to_name:'Bayu Darmawan',
+              from_name:nama,
+              address: cordinat
+              },'user_59hDAVW2zXb7KYDWbzc0L')
+              .then((result)=>{
+                  console.log(result.text)
+              }).catch((err)=>{
+                  console.log(err)
+              })
             console.log('find location jalan')
             // console.log(navigator.geolocation.getCurrentPosition())
-            Geocode.fromLatLng(`${latitude}`, `${longitude}`).then(
-                (response) => {
-                    // console.log(anchor)
-                    console.log(response)
-                  const address = response.results[0].formatted_address;
-                  console.log(address)
-                  setAddress(address)
-                  setLongitude(longitude)
-                  setLatitude(latitude)
-                  emailjs.send("service_48l4mmn","adella_template",{
-                    to_name:'Bayu Darmawan',
-                    from_name:nama,
-                    address: address
-                    },'user_59hDAVW2zXb7KYDWbzc0L')
-                    .then((result)=>{
-                        console.log(result.text)
-                    }).catch((err)=>{
-                        console.log(err)
-                    })
-                //   setIsLoading(false)
+            // Geocode.fromLatLng(`${latitude}`, `${longitude}`).then(
+            //     (response) => {
+            //         // console.log(anchor)
+            //         console.log(response)
+            //       const address = response.results[0].formatted_address;
+            //       console.log(address)
+            //       setAddress(address)
+            //       setLongitude(longitude)
+            //       setLatitude(latitude)
+            //     //   setIsLoading(false)
 
-                },
-                (error) => {
-                  console.error(error);
-                }
-            );
+            //     },
+            //     (error) => {
+            //       console.error(error);
+            //     }
+            // );
+            
             // navigator.geolocation.getCurrentPosition(function(position) {
             //     console.log(position)
             //     console.log(position.coords.latitude)
