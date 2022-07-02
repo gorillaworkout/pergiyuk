@@ -373,16 +373,8 @@ export default function Home(){
                         />
 
                         <p id="maafinakuyabi">
-                            kalo kamu baca ini berarti kita udh gak bareng lagi hahaha <br />
-                            aku sampe sekarang masih nyesel kita harus pisah, apalagi karna kebodohanku sendiri. <br />
-                            rasa sakitnya kaya pas putus sama miyuki hahaha. <br /> aku gangerti deh kok aku bisa se cinta itu sama kamu bi. <br/>
-                            aku seneng akhirnya aku bisa moveon dari miyuki. tapi sekarang aku harus move on dari kamu hahaha <br/>
-                            
-                            <br /> <span id="iloveyou">i just want you to know that i really love you bi, aku kangen meluk kamu bi sambil mainin rambut kamu</span>  <br />
-                            
-                            <br />
-                            walaupun kita udah gak  bersama. setidaknya kita menggunakan sepatu yang sama. hahah mudah mudahan dipake ya sepatunyaa. 
-                            aku gatau sih ukuran kakimu sebenernyaaa. tp ya mudah mudahan muat ya bi
+                                3 July 2022, hahaha aku seneng deh chat lagi. wkwk belaga bego aja deh aku sok sok reply storymu HAHAHAHAH, <br />
+                                move on tuh susah ya ajg. ketika kamu sadar bahwa kesempatan kedua itu akan selalu ada. yuk mulai dari awal lg
 
                             
                             
