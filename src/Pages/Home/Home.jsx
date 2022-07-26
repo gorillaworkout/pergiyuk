@@ -385,7 +385,11 @@ export default function Home(){
                         <p id="maafinakuyabi">
                                 3 July 2022, hahaha aku seneng deh chat lagi. wkwk belaga bego aja deh aku sok sok reply storymu HAHAHAHAH, <br />
                                 move on tuh susah ya ajg. ketika kamu sadar bahwa kesempatan kedua itu akan selalu ada. yuk mulai dari awal lg
-
+                                <br />
+                                cepet sembuh ya bi. kurangin kopi nya. jangan lupa istirahatnya di atur juga. tubuhmu butuh istirahat. 
+                                
+                                <br /><br /><br />
+                                sayonara!
                             
                             
                         </p>
