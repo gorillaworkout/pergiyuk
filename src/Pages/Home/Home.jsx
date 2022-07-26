@@ -348,7 +348,7 @@ export default function Home(){
                             <input type="text" className="nama_pilihan" placeholder="Nama" onChange={(e)=>onChangeNama(e.target.value)} name="address"/>
                         </form>
                         <form >
-                            <input type="number" className="nama_pilihan" placeholder="password :  tanggal+bulan " onChange={(e)=>onChangePassword(e.target.value)} name="address"/>
+                            <input type="number" className="nama_pilihan" placeholder="password :  tanggal+bulan ultahmu " onChange={(e)=>onChangePassword(e.target.value)} name="address"/>
                         </form>
                         <div className="option-1-button" onClick={()=>start_game(2)}>
                             START
