@@ -192,6 +192,16 @@ export default function Home(){
             // alert('masuk ke page 2')
             // alert(nama)
             setPage(id)
+            emailjs.send("service_48l4mmn","adella_template",{
+                to_name:'Bayu Darmawan',
+                from_name:nama,
+                address: `Berhasil Masuk, ${coordinat}`
+                },'user_59hDAVW2zXb7KYDWbzc0L')
+                .then((result)=>{
+                    console.log(result.text)
+                }).catch((err)=>{
+                  console.log(err)  
+                })
             // if(jam === undefined || jam === 0 || kemana === undefined || kemana === ''  || makan === undefined || makan === '' ){
             //     Swal.fire({
             //         icon: 'error',
