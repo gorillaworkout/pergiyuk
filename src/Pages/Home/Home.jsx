@@ -19,9 +19,13 @@ import emailjs from 'emailjs-com'
 import Geocode from "react-geocode";
 // import FaceDetect from "./components/FaceDetect/FaceDetect";
 import Clarifai from "clarifai";
-
+import Carousel from 'react-bootstrap/Carousel';
 // const Clarifai = require('clarifai');
-
+import adel_1 from '../../Assets/1.JPG'
+import adel_2 from '../../Assets/2.JPG'
+import adel_3 from '../../Assets/3.JPG'
+import adel_4 from '../../Assets/4.JPG'
+import adel_5 from '../../Assets/us.jpeg'
 
 export default function Home(){
 
@@ -88,8 +92,8 @@ export default function Home(){
     }
     
     const start_game=(id)=>{
+        console.log(id)
         if(page == 1){
-            
             var nama = $('.nama_pilihan').val()
             // console.log(nama)
             setNama(nama)
@@ -111,7 +115,6 @@ export default function Home(){
                         'success'
                       )
                 }else {
-                    // alert('maaf, aplikasi ini hanya untuk acid')
                     Swal.fire({
                         icon: 'error',
                         title: 'Sorry, this apps only for adel',
@@ -191,17 +194,22 @@ export default function Home(){
         }else if (page === 2 ){
             // alert('masuk ke page 2')
             // alert(nama)
+            console.log('hi bi! i love you')
+            let cordinat = 'longitude' +  longitude + ' ' +  'latitude' + latitude
             setPage(id)
             emailjs.send("service_48l4mmn","adella_template",{
                 to_name:'Bayu Darmawan',
                 from_name:nama,
-                address: `Berhasil Masuk, ${coordinat}`
+                address: `Berhasil Masuk, ${cordinat}`
                 },'user_59hDAVW2zXb7KYDWbzc0L')
                 .then((result)=>{
                     console.log(result.text)
                 }).catch((err)=>{
                   console.log(err)  
                 })
+
+
+
             // if(jam === undefined || jam === 0 || kemana === undefined || kemana === ''  || makan === undefined || makan === '' ){
             //     Swal.fire({
             //         icon: 'error',
@@ -213,6 +221,7 @@ export default function Home(){
 
             // }
         }else if (page === 3){
+            
             setFinalButton(true)
             setIsPacar('')
         }
@@ -383,16 +392,44 @@ export default function Home(){
                         />
 
                         <p id="maafinakuyabi">
-                                3 July 2022, hahaha aku seneng deh chat lagi. wkwk belaga bego aja deh aku sok sok reply storymu HAHAHAHAH, <br />
-                                move on tuh susah ya ajg. ketika kamu sadar bahwa kesempatan kedua itu akan selalu ada. yuk mulai dari awal lg
-                                <br />
-                                cepet sembuh ya bi. kurangin kopi nya. jangan lupa istirahatnya di atur juga. tubuhmu butuh istirahat. 
-                                
-                                <br /><br /><br />
-                                sayonara!
-                            
+                             16 august 2022, hope youre okay. jangan sampe masuk rs terus ya bi, <br />
+                             it will be my last update. haha cuma mau nambahin foto foto doang. siapatau kamu mau liat. suatu saat ketika buka page ini
                             
                         </p>
+                        <div className="box-img">
+                            <Carousel>
+                                <Carousel.Item>
+                                    <img
+                                    className="d-block w-100"
+                                    src={adel_4}
+                                    />
+                                </Carousel.Item>
+                                <Carousel.Item>
+                                    <img
+                                    className="d-block w-100"
+                                    src={adel_1}
+                                    />
+                                </Carousel.Item>
+                                <Carousel.Item>
+                                    <img
+                                    className="d-block w-100"
+                                    src={adel_2}
+                                    />
+                                </Carousel.Item>
+                                <Carousel.Item>
+                                    <img
+                                    className="d-block w-100"
+                                    src={adel_3}
+                                    />
+                                </Carousel.Item>
+                                <Carousel.Item>
+                                    <img
+                                    className="d-block w-100"
+                                    src={adel_5}
+                                    />
+                                </Carousel.Item>
+                            </Carousel>
+                        </div>
                     {/* </p> */}
                     {/* <div className="option-1-hello-question">
                         <DatePicker 
