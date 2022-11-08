@@ -476,7 +476,7 @@ export default function Home() {
                   />
                   <div className="option-1-hello-question">
                     <p>Trip kemana enaknyaaa</p>
-                    <form onSubmit={sendEmail}>
+                    <form>
                       <input
                         type="text"
                         className="nama_pilihan"
@@ -484,7 +484,7 @@ export default function Home() {
                         onChange={(e) => onChangeResult(e.target.value)}
                         name="address"
                       />
-                      <p>kapaaaaaaaan</p>
+                      <p>kaaapaaan</p>
                       <input type="date" onChange={(e)=>onChangeDate(e.target.value)} />
                     </form>
                   </div>
