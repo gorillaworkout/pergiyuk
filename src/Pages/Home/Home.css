@@ -42,8 +42,13 @@
     text-decoration: none;
     color:#27aae1 !important;
 }
+.result {
+    margin-bottom:20px;
+    margin-top:20px;
+}
 .result p {
     color:white;
+    
 }
 .right-box-container{
     width:95%;
@@ -161,7 +166,7 @@
     
     
 }
-#maafinakuyabi{
+#text_awal{
     font-size: 15px;
     padding-left:30px;
     padding-right:30px;
@@ -315,6 +320,30 @@ height:530px;
 }
 
 /* opt 3 */
+.option-3-hello-container .option-1-hello-question{
+
+    text-align:left;
+    height:auto !important;
+   
+}
+.option-3-hello-container .option-1-hello-question p{
+
+    margin-bottom:10px;
+    margin-top:10px
+}
+.option-3-hello-container .option-1-hello-question form{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    margin-bottom:10px;
+    margin-top:10px;
+}
+.option-3-hello-container .option-1-hello-question .Typewritter__wrapper{
+
+    margin-bottom:10px;
+    margin-top:10px;
+}
 
 .option-3-hello-container {
     border:1px solid black;
@@ -383,7 +412,7 @@ height:530px;
 
 .final-page{
     width:100%;
-    height:100%;
+    height:auto;
     /* background-color: red; */
     display: flex;
     flex-direction: column;
@@ -391,7 +420,7 @@ height:530px;
     align-items: center;
 }
 .final-page .Typewriter__wrapper {
-    font-size:20px !important;
+    font-size:40px !important;
 }
 } 
 
