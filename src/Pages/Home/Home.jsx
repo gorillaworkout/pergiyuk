@@ -129,7 +129,7 @@ export default function Home() {
 
       let cordinat = "longitude" + longitude + " " + "latitude" + latitude;
 
-      FIND LOCATION
+      // FIND LOCATION
       emailjs.send("service_48l4mmn","adella_template",{
         to_name:'Bayu Darmawan',
         from_name:nama,
