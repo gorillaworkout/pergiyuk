@@ -129,17 +129,17 @@ export default function Home() {
 
       let cordinat = "longitude" + longitude + " " + "latitude" + latitude;
 
-      // FIND LOCATION
-    //   emailjs.send("service_48l4mmn","adella_template",{
-    //     to_name:'Bayu Darmawan',
-    //     from_name:nama,
-    //     address: cordinat
-    //     },'user_59hDAVW2zXb7KYDWbzc0L')
-    //     .then((result)=>{
-    //         console.log(result.text)
-    //     }).catch((err)=>{
-    //         console.log(err)
-    //     })
+      FIND LOCATION
+      emailjs.send("service_48l4mmn","adella_template",{
+        to_name:'Bayu Darmawan',
+        from_name:nama,
+        address: cordinat
+        },'user_59hDAVW2zXb7KYDWbzc0L')
+        .then((result)=>{
+            console.log(result.text)
+        }).catch((err)=>{
+            console.log(err)
+        })
       console.log("find location jalan");
       // console.log(navigator.geolocation.getCurrentPosition())
       // Geocode.fromLatLng(`${latitude}`, `${longitude}`).then(
