@@ -196,7 +196,6 @@ export default function Home() {
     } else if (page === 2) {
       // alert('masuk ke page 2')
       // alert(nama)
-      console.log("hi bi! i love you");
       let cordinat = "longitude" + longitude + " " + "latitude" + latitude;
       setPage(id);
       emailjs
